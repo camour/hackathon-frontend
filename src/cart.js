@@ -167,5 +167,6 @@ const displayCart = () =>
     
     displayCartProducts();
     displayCartSum();
+    updateCartBadge(); 
 }
 

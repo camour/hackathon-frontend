@@ -102,6 +102,6 @@ const displayPurchases = () =>
         displayPurchaseItems(purchase);          
         purchasesBlock.appendChild(document.createElement('hr'));        
     }
-    
+    updateCartBadge();     
 
 }

@@ -8,23 +8,8 @@ const createDropMenu = (colors) =>
     return dropMenu;
 }
 
-const getProductQuantityFromCart = (product) =>
-{
-    let productQuantity = 0;
-    if( (localStorage.getItem('cart')!= null) && (localStorage.getItem('cart') != undefined) )
-    {
-        let cartArray = JSON.parse(localStorage.getItem('cart'));
-        
-        for(let item of cartArray)
-        {
-            if (item.product._id === product._id)
-            {
-                productQuantity = item.quantity;
-            }
-        }
-    }
-    return productQuantity;
-}
+
+
 
 
 const addItemToCart = (cartButton, product, quantity) =>
@@ -70,8 +55,9 @@ const createCartButton = (product) =>
         let selectedQuantity = document.getElementById('productQuantity_'+product._id).value; 
         
         addItemToCart(cartButton, product, parseInt(selectedQuantity, 10));
+        updateCartBadge();
     });
-
+   
     return cartButton;
 }
 
@@ -118,7 +104,7 @@ const displayProduct = () =>
         
         let productsBlock = document.getElementById('products');
         productsBlock.appendChild(block);
-     
+        updateCartBadge();      
         
     });
 }

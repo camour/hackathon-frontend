@@ -1,3 +1,21 @@
+const updateCartBadge = () =>
+{
+    if( (localStorage.getItem('cart') != null) && (localStorage.getItem('cart') !=undefined))
+    {
+        let cartArray = JSON.parse(localStorage.getItem('cart'));
+        let badge = document.getElementsByClassName('badge')[0];
+        let productNumber = 0;
+        for(let product of cartArray)
+        {
+            productNumber+= product.quantity;
+        }
+        
+        badge.innerHTML = productNumber;
+       
+    }
+  
+}
+
 const createQuantityInput = (product) =>
 {
     
@@ -53,6 +71,7 @@ const removeProductFromCart = (product) =>
             localStorage.setItem('cart', JSON.stringify(cartArray));
         } 
     }
+    
 }
 
 const createRemoveButton = (product) =>
@@ -64,7 +83,8 @@ const createRemoveButton = (product) =>
     removeButton.addEventListener('click', function(event){
         event.preventDefault();
         removeProductFromCart(product);
-        location.reload();       
+        location.reload();
+            
     });
     return removeButton;
 }
@@ -148,7 +168,8 @@ const displayProducts = () =>
     })
     .then(function(objectResult){
         
-        displayProductsList(objectResult);        
+        displayProductsList(objectResult);
+        updateCartBadge();    
         
     });
 
