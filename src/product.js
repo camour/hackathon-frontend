@@ -32,8 +32,7 @@ const addItemToCart = (cartButton, product, quantity) =>
     let count = 0;
     if(localStorage.getItem('cart') === null)
     {
-        let itemsArray = new Array({product: product, quantity: quantity});
-        document.getElementById('cartButtonQuantity').innerText = '  (x' + quantity + ')';
+        let itemsArray = new Array({product: product, quantity: quantity});        
         localStorage.setItem('cart', JSON.stringify(itemsArray));
     }
     else
@@ -43,16 +42,13 @@ const addItemToCart = (cartButton, product, quantity) =>
         {
             if(item.product._id === product._id)
             {
-                item.quantity+= quantity;
-                
-                document.getElementById('cartButtonQuantity').innerText = '  (x' + item.quantity + ')';
+                item.quantity+= quantity;            
                 count = 1;
             }
         }
         if(count==0)
         {
-            itemsArray.push({product: product, quantity: quantity});
-            document.getElementById('cartButtonQuantity').innerText = '  (x' + quantity + ')';
+            itemsArray.push({product: product, quantity: quantity});           
         }
        
         localStorage.setItem('cart', JSON.stringify(itemsArray));
@@ -66,13 +62,14 @@ const addItemToCart = (cartButton, product, quantity) =>
 const createCartButton = (product) =>
 {
     let cartButton = document.createElement('button');
-    cartButton.innerHTML = '<i class="fas fa-cart-plus"></i><span id="cartButtonQuantity"> (x'+ getProductQuantityFromCart(product) +')</span>';
+    
+    cartButton.innerHTML = '<i class="fas fa-cart-plus">add cart</i>';
     cartButton.addEventListener('click', function(event){
         event.preventDefault();
         
-        let selectQuantity = document.getElementById('productQuantity_'+product._id).value; 
+        let selectedQuantity = document.getElementById('productQuantity_'+product._id).value; 
         
-        addItemToCart(cartButton, product, parseInt(selectQuantity, 10) +1);
+        addItemToCart(cartButton, product, parseInt(selectedQuantity, 10));
     });
 
     return cartButton;
@@ -83,13 +80,13 @@ const buildOptionsBlock = (product) =>
     let optionsBlock = document.createElement('div');
     optionsBlock.classList.add('optionsBlock');
     let dropMenu = createDropMenu(product.colors);    
-    let quantityTab = createQuantityTab(product);
+    let quantityInput = createQuantityInput(product);
     let cartButton = createCartButton(product);
     let removeButton = createRemoveButton(product);
 
     optionsBlock.appendChild(dropMenu);
     optionsBlock.appendChild(cartButton);
-    optionsBlock.appendChild(quantityTab);
+    optionsBlock.appendChild(quantityInput);
     optionsBlock.appendChild(removeButton);
 
     return optionsBlock;

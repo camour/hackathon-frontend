@@ -119,6 +119,16 @@ const displayCartSum = () =>
     cartSum.innerText = computeCartSum()/100;
 }
 
+const createProductQuantity = (quantity) =>
+{
+    if((quantity != null) && (quantity!=undefined) )
+    {
+        let productQuantity = document.createElement('p');
+        productQuantity.classList.add('cartProductQuantity');
+        productQuantity.innerHTML = "x " + quantity;
+        return productQuantity;
+    }
+}
 
 const displayCartProducts = () =>
 {
@@ -132,13 +142,8 @@ const displayCartProducts = () =>
         for(let item of cartArray)
         {
             let productCard = buildProductCard(item.product);
-            let productQuantity = createQuantityTab(item.product);
-            productQuantity.value = item.quantity - 1;
+            let productQuantity = createProductQuantity(item.quantity);           
             
-            productQuantity.addEventListener('change', function(event){
-                item.quantity = parseInt(event.target.value, 10) + 1;            
-                localStorage.setItem('cart', JSON.stringify(cartArray));                       
-            });
             let removeButton = createRemoveButton(item.product);
             let productBlock = document.createElement('div');
             productBlock.appendChild(productCard);
@@ -152,7 +157,7 @@ const displayCartProducts = () =>
     }
     else
     {
-        title.innerHTML = "Votre panier est vide ";
+        title.innerHTML = "Empty cart";
     }
     
 }

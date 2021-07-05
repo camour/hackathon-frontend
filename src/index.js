@@ -1,16 +1,15 @@
-const createQuantityTab = (product) =>
+const createQuantityInput = (product) =>
 {
-    let tab = [1,2,3,4];
-    let quantityTab = document.createElement('select');
-    quantityTab.classList.add('selectQuantity');
-    quantityTab.setAttribute('id', 'productQuantity_'+product._id);
     
-    tab.forEach(function(element, key){
-        quantityTab[key] = new Option(element, key);        
+    let quantityInput = document.createElement('input');
+    quantityInput.setAttribute('type', 'number');
+    quantityInput.classList.add('inputQuantity');
+    quantityInput.setAttribute('id', 'productQuantity_'+product._id);
+    quantityInput.setAttribute('min','1');
+    quantityInput.setAttribute('max','100'); 
+    quantityInput.setAttribute('value','1');  
 
-    });
-
-    return quantityTab;
+    return quantityInput;
 }
 
 

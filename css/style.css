@@ -19,7 +19,7 @@ h3
 }
 button
 {
-    width: 100px;
+    width: 120px;
     height: 30px;
     margin-top : 50px;
     border: 0.5px solid;
@@ -42,16 +42,27 @@ select
     height: 30px;
 }
 
-.selectQuantity
+.inputQuantity
 {
+    
     margin-right: 20px;
     width: 55px;
 }
 
-.optionsBlock .selectQuantity
+.optionsBlock .inputQuantity
 {
     margin-left: auto;
     margin-right: auto;
+    margin-top: 10px;
+}
+
+.cartProductQuantity
+{
+    border: 1px grey solid;
+    width: 50px;
+    text-align: center;
+    margin: auto;
+    margin-top: 15px;
 }
 
 #purchases
@@ -122,6 +133,8 @@ select
 .removeButton
 {
     background-color: red;
+    
+    margin: auto;
     margin-top: 20px;
     
 }

@@ -62,7 +62,7 @@ const confirmPurchase = (purchase) =>
     purchaseBlock.style.marginBottom = "30px";  
     let paragraph = document.createElement('p');
     paragraph.classList.add('recap');  
-    paragraph.innerHTML = "Nous vous remercions pour votre commande<br> total payé : " + computePurchase(purchase) + "€ <br/>";
+    paragraph.innerHTML = "Nous vous remercions pour votre commande<br> total payé : " + computePurchase(purchase)/100 + "€ <br/>";
     paragraph.innerHTML+= "Order id : " + purchase.orderId;
        
 
