@@ -62,9 +62,9 @@ const confirmPurchase = (purchase) =>
     purchaseBlock.style.marginBottom = "30px";  
     let paragraph = document.createElement('p');
     paragraph.classList.add('recap');  
-    paragraph.innerHTML = "Nous vous remercions pour votre commande<br> total payé : " + computePurchase(purchase)/100 + "€ <br/>";
-    paragraph.innerHTML+= "Order id : " + purchase.orderId;
-       
+    paragraph.innerHTML = "Thank you for trusting us <br> Amount paid: " + computePurchase(purchase)/100 + "€ <br/>";
+    paragraph.innerHTML+="Date : " + purchase.purchaseDate + "<br/>";
+    paragraph.innerHTML+= "Order id : " + purchase.orderId;       
 
     purchaseBlock.appendChild(paragraph);
     
@@ -73,7 +73,7 @@ const confirmPurchase = (purchase) =>
     itemsBlock.setAttribute('id', purchase.orderId);
     itemsBlock.classList.add('container');
 
-    purchaseBlock.appendChild(createTitle('Liste des articles'));
+    purchaseBlock.appendChild(createTitle('Recap of what you bought'));
 
     purchaseBlock.appendChild(itemsBlock);
 

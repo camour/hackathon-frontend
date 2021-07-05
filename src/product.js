@@ -48,14 +48,16 @@ const createCartButton = (product) =>
 {
     let cartButton = document.createElement('button');
     
-    cartButton.innerHTML = '<i class="fas fa-cart-plus">add cart</i>';
+    cartButton.innerHTML = '<i class="fas fa-cart-plus"></i> add cart';
     cartButton.addEventListener('click', function(event){
-        event.preventDefault();
+        event.preventDefault();        
+        let selectedQuantity = document.getElementById('productQuantity_'+product._id).value;
+        if (selectedQuantity > 0)
+        {      
+            addItemToCart(cartButton, product, parseInt(selectedQuantity, 10));
+            updateCartBadge();
+        }
         
-        let selectedQuantity = document.getElementById('productQuantity_'+product._id).value; 
-        
-        addItemToCart(cartButton, product, parseInt(selectedQuantity, 10));
-        updateCartBadge();
     });
    
     return cartButton;

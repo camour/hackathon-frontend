@@ -86,6 +86,8 @@ document.getElementById('formSubmit').addEventListener('click',function(event){
             {             
                 purchasesArray = JSON.parse(localStorage.getItem('purchases'));                
             }
+            let purchaseDate = new Date();
+            objectResult.purchaseDate = "" + purchaseDate.getDay()  +"/"+ purchaseDate.getMonth() + "/" +purchaseDate.getFullYear() + "";
             purchasesArray.unshift(objectResult);
             localStorage.setItem('purchases', JSON.stringify(purchasesArray));                                   
             location.replace('./purchase.html');
