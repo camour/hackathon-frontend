@@ -64,7 +64,7 @@ const removeProductFromCart = (product) =>
         
         if(cartArray.length == 0)
         {
-            localStorage.clear();
+            localStorage.removeItem('cart');
         }
         else
         {
@@ -164,13 +164,20 @@ const displayProducts = () =>
     
     fetch("http://localhost:3000/api/teddies/")
     .then(function(result){
-        return result.json();
+        if(result.ok)
+        {
+            return result.json();
+        }
     })
     .then(function(objectResult){
         
         displayProductsList(objectResult);
         updateCartBadge();    
         
+    })
+    .catch(function(error){
+        
+        alert("communication with server failed, items are not available");
     });
 
 

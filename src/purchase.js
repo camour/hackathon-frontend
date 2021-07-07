@@ -91,17 +91,24 @@ const displayPurchase = (purchase) =>
 
 const displayPurchases = () =>
 {
-    localStorage.removeItem('cart');
+    
     let purchasesBlock = document.getElementById('purchases');
     let purchasesArray = JSON.parse(localStorage.getItem('purchases'));
-    
-    for(let purchase of purchasesArray)
+    if((purchasesArray != null) && (purchasesArray != undefined))
     {
-        let purchaseBlock = displayPurchase(purchase)        
-        purchasesBlock.appendChild(purchaseBlock);
-        displayPurchaseItems(purchase);          
-        purchasesBlock.appendChild(document.createElement('hr'));        
+        for(let purchase of purchasesArray)
+        {
+            let purchaseBlock = displayPurchase(purchase)        
+            purchasesBlock.appendChild(purchaseBlock);
+            displayPurchaseItems(purchase);          
+            purchasesBlock.appendChild(document.createElement('hr'));        
+        }
     }
-    updateCartBadge();     
+    else
+    {
+        purchasesBlock.appendChild(createTitle("No purcharses in sight ! "));
+    }
+    updateCartBadge();
+     
 
 }

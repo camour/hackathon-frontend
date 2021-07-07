@@ -63,7 +63,7 @@ document.getElementById('formSubmit').addEventListener('click',function(event){
     let contactObject = getContactFromForm();
     if(validateContact(contactObject))
     {  
-         
+        
         fetch("http://localhost:3000/api/teddies/order",{
             method: "POST",
             headers: {
@@ -89,7 +89,8 @@ document.getElementById('formSubmit').addEventListener('click',function(event){
             let purchaseDate = new Date();
             objectResult.purchaseDate = "" + purchaseDate.getDay()  +"/"+ purchaseDate.getMonth() + "/" +purchaseDate.getFullYear() + "";
             purchasesArray.unshift(objectResult);
-            localStorage.setItem('purchases', JSON.stringify(purchasesArray));                                   
+            localStorage.setItem('purchases', JSON.stringify(purchasesArray));
+            localStorage.removeItem('cart');                                   
             location.replace('./purchase.html');
         })
         .catch(function(error){
@@ -119,6 +120,7 @@ const displayCartSum = () =>
 {
     let cartSum = document.getElementById("price");
     cartSum.innerText = computeCartSum()/100;
+    return computeCartSum();
 }
 
 const createProductQuantity = (quantity) =>
@@ -168,7 +170,10 @@ const displayCart = () =>
 {
     
     displayCartProducts();
-    displayCartSum();
+    if(displayCartSum() > 0)
+    {
+        document.getElementById('formSubmit').removeAttribute('disabled');
+    }
     updateCartBadge(); 
 }
 

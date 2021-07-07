@@ -31,11 +31,21 @@ button:hover
 {
     opacity: 0.8;
 }
+
+.badge-light
+{
+    background-color: red;
+    color: black;
+}
+
 i
 {
     transform: scale(1.2);
 }
-
+li .fa-cart-plus
+{
+    color: white;
+}
 select
 {
     margin-top: 20px;
@@ -69,6 +79,9 @@ select
 {
     width: 90%;
     margin: auto;
+    text-align: center;
+    margin-top: 30px;
+    font-weight: bold;
 }
 
 #products
