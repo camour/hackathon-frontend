@@ -86,27 +86,38 @@ const getProductId = () =>
     let productId = urlParams.get('id');
     return productId;
 }
+
+const displayProductBlock = (objectResult) =>
+{
+    let productCard = buildProductCard(objectResult);
+    let optionsBlock = buildOptionsBlock(objectResult);
+
+    let block = document.createElement('div');
+    block.classList.add('block');
+    block.appendChild(productCard);
+    block.appendChild(optionsBlock);
+
+    let productsBlock = document.getElementById('products');
+    productsBlock.appendChild(block);
+}
 const displayProduct = () =>
 {
     
     fetch("http://localhost:3000/api/teddies/"+getProductId())
     .then(function(result){
-        return result.json();
+        if(result.ok)
+        {
+            return result.json();
+        }
     })
     .then(function(objectResult){
         
-        
-        let productCard = buildProductCard(objectResult);
-        let optionsBlock = buildOptionsBlock(objectResult);
-
-        let block = document.createElement('div');
-        block.classList.add('block');
-        block.appendChild(productCard);
-        block.appendChild(optionsBlock);
-        
-        let productsBlock = document.getElementById('products');
-        productsBlock.appendChild(block);
+        displayProductBlock(objectResult);
         updateCartBadge();      
         
+    })
+    .catch(function(error){
+        
+        alert(error);
     });
 }

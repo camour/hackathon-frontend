@@ -39,29 +39,104 @@ const getContactFromForm = () =>
 
 }
 
+const hasUndefinedAttribute = (contactObject) =>
+{
+    let ok = false;
+    if( (contactObject.firstName === undefined) || (contactObject.lastName === undefined) || (contactObject.address === undefined) || (contactObject.city === undefined) || (contactObject.email === undefined) )
+    {
+        ok = true;       
+    }
+    return ok;
+}
+
+const hasNullAttribute = (contactObject) =>
+{
+    let ok = false;
+
+    if( (contactObject.firstName === null) || (contactObject.lastName === null) || (contactObject.address === null) || (contactObject.city === null) || (contactObject.email === null) )
+    {
+        ok = true;
+    }
+
+    
+    return ok;
+}
+
+const hasNotStringsAttribute = (contactObject) =>
+{
+    let ok = false;
+
+    if( (typeof contactObject.firstName != 'string') || (typeof contactObject.lastName != 'string') || (typeof contactObject.address != 'string') || (typeof contactObject.city != 'string') || (typeof contactObject.email != 'string') )
+    {
+        ok = true;
+        
+    }
+
+    return ok;
+}
+
 const validateContact = (contactObject) =>
 {
     let ok = true;
-    if( (contactObject.firstName === undefined) || (contactObject.lastName === undefined) || (contactObject.address === undefined) || (contactObject.city === undefined) || (contactObject.email === undefined) )
-    {
-        ok = false;       
-    }
-    if( (contactObject.firstName === null) || (contactObject.lastName === null) || (contactObject.address === null) || (contactObject.city === null) || (contactObject.email === null) )
-    {
-        ok = false;        
-    }
-    if( (typeof contactObject.firstName != 'string') || (typeof contactObject.lastName != 'string') || (typeof contactObject.address != 'string') || (typeof contactObject.city != 'string') || (typeof contactObject.email != 'string') )
+    if(hasUndefinedAttribute(contactObject))
     {
         ok = false;
+        console.log('undefined contactObject attributes');      
+    }
+    if(hasNullAttribute(contactObject))
+    {
+        ok = false;
+        console.log('null contactObject attributes');         
+    }
+    if(hasNotStringsAttribute(contactObject))
+    {
+        ok = false;
+        console.log('not strings contactObject attributes'); 
         
     }
+    return ok;
+}
+
+
+const validateForm = () =>
+{
+    let ok = true;
+
+    if(document.getElementById('firstName').value === '')
+    {
+        ok = false;
+        alert("invalid first name"); 
+    }
+    if(document.getElementById('lastName').value === '')
+    {
+        ok = false;
+        alert("invalid last name"); 
+    }
+    if(document.getElementById('address').value === '')
+    {
+        ok = false;
+        alert("invalid address"); 
+    }
+    if(document.getElementById('city').value === '')
+    {
+        ok = false;
+        alert("invalid city"); 
+    }
+    if (!(/^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/.test(document.getElementById('email').value)))
+    {
+        ok = false;
+        alert("invalid mail");        
+    }
+
     return ok;
 }
 
 document.getElementById('formSubmit').addEventListener('click',function(event){
     event.preventDefault();
     let contactObject = getContactFromForm();
-    if(validateContact(contactObject))
+    
+    
+    if(validateContact(contactObject) && validateForm())
     {  
         
         fetch("http://localhost:3000/api/teddies/order",{
@@ -76,8 +151,10 @@ document.getElementById('formSubmit').addEventListener('click',function(event){
             })
         })
         .then(function(result){
-            
-            return result.json();
+            if( result.ok)
+            {
+                return result.json();
+            }
         })
         .then(function(objectResult){
             
@@ -94,7 +171,8 @@ document.getElementById('formSubmit').addEventListener('click',function(event){
             location.replace('./purchase.html');
         })
         .catch(function(error){
-            console.log(error);
+        
+            alert(error);
         });
     }
    

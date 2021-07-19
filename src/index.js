@@ -92,8 +92,15 @@ const createRemoveButton = (product) =>
 
 const createProductName = (name, price) =>
 {
-    let productName = document.createElement('h3');    
-    productName.innerHTML = name + '<br>' + price + '€';
+    let productName = document.createElement('h3'); 
+    if(name && price)
+    {           
+        productName.innerHTML = name + '<br>' + price + '€';        
+    }
+    else
+    {
+        productName.innerHTML = "unknown";
+    }
     return productName;
 }
 
@@ -101,8 +108,14 @@ const createProductImage = (src) =>
 {
     let productImage = document.createElement('div');
     productImage.classList.add('productImage');
-    productImage.style.backgroundImage = "url("+src+")";
-
+    if(src)
+    {
+        productImage.style.backgroundImage = "url("+src+")";
+    }      
+    else
+    {
+        productImage.style.backgroundColor = "white";        
+    }
     return productImage;
 }
 
@@ -110,7 +123,14 @@ const createProductDescription = (description) =>
 {
     let productDescription = document.createElement('p');
     productDescription.classList.add('productDescription');
-    productDescription.innerHTML = description;
+    if(description)
+    {        
+        productDescription.innerHTML = description;        
+    }
+    else
+    {
+        description = "no description available";
+    }
     return productDescription;
 }
 
@@ -118,16 +138,21 @@ const createProductCard = (id) =>
 {
     let productCard = document.createElement('div');
     productCard.classList.add('productCard');
-    productCard.setAttribute('id', id);    
-    productCard.addEventListener('click', function(event){
-        location.replace("./product.html?id="+id);
-    });
-    
+    if(id)
+    {
+        
+        productCard.setAttribute('id', id);    
+        productCard.addEventListener('click', function(event){
+            location.replace("./product.html?id="+id);
+        });        
+        
+    }
     return productCard;
 }
 
 const buildProductCard = (product) =>
-{
+{    
+    
     let productImage = createProductImage(product.imageUrl);
     let productName = createProductName(product.name, product.price/100);
     let productDescription = createProductDescription(product.description);
@@ -137,23 +162,24 @@ const buildProductCard = (product) =>
     productCard.appendChild(productName);
     productCard.appendChild(productDescription);
 
-    return productCard;
+    let block = document.createElement('div');
+    block.appendChild(productCard);
+
+    return block;
 }
 
 const displayProductsList = (productsObject) =>
 {
-    console.log(productsObject);
+    
     if(productsObject)
     {
         
         for(let product of productsObject)
         {
-                let block = document.createElement('div');      
-                let productCard = buildProductCard(product);
-                let productsBlock = document.getElementById('products');
-                block.appendChild(productCard);
-                productsBlock.appendChild(block);
-              
+                     
+                let productCardBlock = buildProductCard(product);
+                let productsBlock = document.getElementById('products');                
+                productsBlock.appendChild(productCardBlock);              
         
         }
     }
