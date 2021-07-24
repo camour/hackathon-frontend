@@ -106,6 +106,7 @@ const createProductName = (name, price) =>
 
 const createProductImage = (src) =>
 {
+    
     let productImage = document.createElement('div');
     productImage.classList.add('productImage');
     if(src)
