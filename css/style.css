@@ -6,22 +6,14 @@ h2
     margin-bottom: 20px;
     text-align: center;
 }
-h3
-{
-    text-align: center;
-    font-size: 0.9em;
-    margin-top: 10px;
-}
-.block
-{
-    display: flex;
-    justify-content: space-evenly;
-}
+
+
 button
 {
     width: 120px;
     height: 30px;
     margin-top : 50px;
+    margin: auto;
     border: 0.5px solid;
     border-radius: 2rem;
     background-color: rgb(218, 218, 142);
@@ -32,179 +24,55 @@ button:hover
     opacity: 0.8;
 }
 
-.badge-light
-{
-    background-color: red;
-    color: black;
-}
-
-i
+.header i
 {
     transform: scale(1.2);
 }
-li .fa-cart-plus
-{
-    color: white;
-}
-select
-{
-    margin-top: 20px;
-    height: 30px;
-}
 
-.inputQuantity
-{
-    
-    margin-right: 20px;
-    width: 55px;
-}
-
-.optionsBlock .inputQuantity
-{
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-}
-
-.cartProductQuantity
-{
-    border: 1px grey solid;
-    width: 50px;
-    text-align: center;
-    margin: auto;
-    margin-top: 15px;
-}
-
-#purchases
-{
-    width: 90%;
-    margin: auto;
-    text-align: center;
-    margin-top: 30px;
-    font-weight: bold;
-}
-
-#products
-{
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    padding: 5px;
-    width: 90%;
-    margin: auto;
-    margin-top: 50px;
-   
-}
-
-.productCard
-{
-    color: black;
-    text-decoration: none;
-    
-    width: 300px;      
-    
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 30px;
-
-    border: 1px rgb(185, 180, 180) solid;
-    border-radius: 2rem;
-    box-shadow: 3px 3px 0px rgb(134, 133, 133);
-
-}
-.productCard:hover
-{
-    opacity: 0.8;
-    color: black;
-    text-decoration: none;
-}
-
-.productImage
-{
-    width: 100%;
-    height: 150px;
-    margin: auto;
-    /* Pour bien faire etendre l'image sur tout le bloc */
-	background-size: cover;
-	/* Pour centrer l'image */
-	background-position: center;
-    border-radius: 2rem 2rem 0 0;
-}
-
-.productDescription
-{
-    margin-left: 10px;
-}
-
-.optionsBlock
-{
-    display: flex;
-    flex-direction: column;
-    margin-left: 30px;    
-}
-
-.removeButton
-{
-    background-color: red;    
-    margin: auto; 
-    margin-top: 20px;
-    
-}
-
-#sum
-{
-    width: 150px;
-    padding: 10px;
-    font-weight: bold;
-    text-align: center;    
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    border: 1px black solid;
-    border-radius: 2rem;
-    background-color: thistle;
-    box-shadow: 3px 3px 0px black;
-}
 hr
 {
     border: 1px black solid;
     width: 80%;
     margin: auto;
 }
-form
-{
-    width: 60%;    
+
+main{
+    width: 400px;
     margin: auto;
-    margin-top: 20px;
-    padding: 20px;
-    text-align: center;
-    
-}
-form h4
-{
-    width: 90%;
-    margin: auto;
-    text-align: center;
-    margin-bottom: 30px;
-}
-form fieldset
-{
-    display: flex;
-    flex-direction: column;
-}
-form button
-{
-    margin-right: auto;
-    margin-left: auto;
+    position: relative
 }
 
-form div
-{
-    margin-top: 10px;    
+
+.jumbos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 200px;
+    margin: auto;
+    position: relative;
 }
-form label
-{
-    width: 100px;
+.jumbos div{
+    position: relative;
+}
+.jumbos i{
+    transform: scale(3.4);
+    position: absolute;
+}
+.jumbos .fas.fa-heart{
+    color: blue;
+}
+.jumbos .far.fa-heart{
+    color: black;
+}
+
+.jumbo{
+    background-image: url('../images/monitor.png');
+    background-position: center;
+    background-size: cover;
+    width: 240px;
+    height: 180px;
+    margin: auto;
 }
 
 footer
@@ -227,58 +95,14 @@ li
     text-align: center;
 }
 
-.purchaseBlock
-{
-    width: 90%;
-    margin: auto;
-}
-.purchaseQuantityBlock
-{
-    width: 50px;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    text-align: center;
-    border: 2px black solid;
-}
-
 @media all and (max-width: 900px)
 {
-    .block
-    {
-        display: flex;
-        flex-direction: column;
-    }
+    
     button
     {
         margin: auto;
         margin-top: 40px;
-    }
-    
-    select
-    {
-        margin: auto;
-        margin-top: 30px;
-    }
-    #products
-    {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .productCard
-    {      
-        margin: auto;
-        margin-top: 50px;
-    }
-
-    
-    form div
-    {
-        display: flex;
-        flex-direction: column;
-    }
-    
+    }  
 
     footer ul
     {
@@ -291,14 +115,3 @@ li
     }
 }
 
-
-.recap
-{
-    width: 300px;
-    font-weight: bold;
-    margin: auto;
-    margin-top: 30px;
-    border: 2px grey solid;
-    text-align: center;
-    padding: 10px;
-}

@@ -2,6 +2,10 @@ const path = require('path');
 
 module.exports = {
   mode: "production",
+  devServer: {
+    inline:true,
+    port: 80
+  },
   entry: {
     //app: "./src/index.js"
   },
