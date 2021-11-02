@@ -1,4 +1,4 @@
-const containersArray = [];
+const containersArray = ['cnt-863604642', 'cnt-880165534'];
 
 //chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
 const getData = () => {
@@ -24,10 +24,6 @@ const getData = () => {
   });
 };
 
-document.getElementById('getDataButton').addEventListener('click', function(event){
-  getData();
-}); 
-
 addEventListener('load', async () => {
   let sw = await navigator.serviceWorker.register('/sw.js');
   console.log('service worker registered locally : ');
@@ -51,6 +47,7 @@ document.getElementById('subscribeButton').addEventListener('click', async () =>
       'Accept': 'application/json'
     },
     body: JSON.stringify({
+      containerId: containersArray[0],
       push: push,
     })
   })
@@ -70,5 +67,5 @@ document.getElementById('subscribeButton').addEventListener('click', async () =>
 
 const navigatorBroadcast = new BroadcastChannel('count-channel');
 navigatorBroadcast.onmessage = (event) => {
-  document.getElementById('datas').innerHTML = 'test';
+  document.getElementById('monitoringBlock').innerHTML = 'test';
 }; 
