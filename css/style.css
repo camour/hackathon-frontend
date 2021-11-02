@@ -1,3 +1,10 @@
+@font-face{
+    font-family: "police";
+	src: url('../polices/Stormland_PERSONAL_USE_ONLY-Black.otf') format('otf'),
+		url('../polices/Stormland_PERSONAL_USE_ONLY-Bold.otf') format('woff2'),
+        url('../polices/Stormland_PERSONAL_USE_ONLY-Light.otf') format('woff');
+}
+
 h2
 {
     width: 90%;
@@ -23,10 +30,31 @@ button:hover
 {
     opacity: 0.8;
 }
+header{
+    padding: 20px;
+}
 
-.header i
+header hr{
+    opacity: 0;
+    border: 1.5px white solid;
+}
+header a:hover + hr{
+    opacity: 1;
+}
+
+header i
 {
-    transform: scale(1.2);
+    transform: scale(1.4);
+}
+
+.monitorGif{
+    background-image: url('../images/monitor.gif');
+    background-position: center;
+    background-size: cover;
+    width: 90px;
+    height: 40px;
+    margin-top: 3px;
+    border-radius: 0.5rem;
 }
 
 hr
@@ -36,10 +64,15 @@ hr
     margin: auto;
 }
 
+.navbar-brand{
+    margin-right: 50px;
+}
+
 main{
-    width: 400px;
+    width: 900px;
     margin: auto;
-    position: relative
+    position: relative;
+    margin-bottom: 100px;
 }
 
 
@@ -47,38 +80,41 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px;
-    height: 200px;
+    width: 800px;
+    height: 120px;
     margin: auto;
     position: relative;
 }
-.jumbos div{
-    position: relative;
-}
-.jumbos i{
-    transform: scale(3.4);
-    position: absolute;
-}
-.jumbos .fas.fa-heart{
-    color: blue;
-}
-.jumbos .far.fa-heart{
-    color: black;
+
+.jumbos p{
+    font-family: 'police';
+    font-style: italic;
+    font-size: 2.4em;
+    text-align: center;
+    width: 700px;
+    padding-top: 10px;
 }
 
 .jumbo{
-    background-image: url('../images/monitor.png');
+    background-image: url('../images/monitor_logo.png');
     background-position: center;
     background-size: cover;
-    width: 240px;
-    height: 180px;
+    width: 60px;
+    height: 80px;
+}
+main hr{
+    width: 300px;
     margin: auto;
+}
+
+.monitoringBlock{
+    width: 400px; 
 }
 
 footer
 {
-    margin-top: 80px;
-    padding: 20px;
+    margin-top: 90px;
+    padding: 25px;
 }
 footer ul
 {

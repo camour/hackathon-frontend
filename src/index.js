@@ -1,3 +1,5 @@
+const containersArray = [];
+
 //chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
 const getData = () => {
   fetch("http://172.20.10.2:8282/~/mn-cse/cin-273837532",{
@@ -48,7 +50,9 @@ document.getElementById('subscribeButton').addEventListener('click', async () =>
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     },
-    body: JSON.stringify(push)
+    body: JSON.stringify({
+      push: push,
+    })
   })
   .then(result => {
     if(result.ok){
@@ -67,4 +71,4 @@ document.getElementById('subscribeButton').addEventListener('click', async () =>
 const navigatorBroadcast = new BroadcastChannel('count-channel');
 navigatorBroadcast.onmessage = (event) => {
   document.getElementById('datas').innerHTML = 'test';
-};
+}; 
