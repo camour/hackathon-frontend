@@ -32,7 +32,7 @@
                 <hr>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="subscribe.html">subscribe</a>
+                <a class="nav-link" href="logout.html">logout</a>
                 <hr>
               </li>
               <li class="nav-item active">
@@ -44,15 +44,23 @@
         <div>
     </div>
 </header>
-
+  <div class="form">
+      <div>
+        <label for="login">login</label>
+        <input type="text" id="login" name="login" value="admin"/>
+      </div>
+      <div>
+        <label for="password">password</label>
+        <input type="password" id="password" name=""password value="admin"/>
+      </div>
+      <button type="submit" id="formSubmitButton">submit</button>
+  </div>
   <main class="container">
     <div class="jumbos"><div class="jumbo"></div><p>Health Monitoring</p></div>
     <hr>
     <!--<button type="submit" id="getDataButton">get data</button>-->
     <div id="monitoringBlock"></div>
   </main>
-  
-  <button type="submit" id="subscribeButton">subscribe</button>
 
   <footer class="bg-dark text-center text-white">
     <div class="container">
@@ -95,6 +103,7 @@
           
     </div>
 </footer> 
+<script src="./src/tools.js"></script>
 <script src="./src/index.js"></script>
 <script src="./sw.js"></script>
 

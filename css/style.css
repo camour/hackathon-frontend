@@ -67,6 +67,28 @@ hr
 .navbar-brand{
     margin-right: 50px;
 }
+.form{
+    width: 400px;
+    margin: auto;
+    margin-top: 100px;
+    font-family: 'police';
+    font-style: italic;
+    font-size: 0.9em;
+}
+.form div{
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.form div input{
+    width: 200px;
+}
+
+#formSubmitButton{
+    display: block;
+    width: 150px;
+    margin: auto;
+}
 
 main{
     width: 900px;
