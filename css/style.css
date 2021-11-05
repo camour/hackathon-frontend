@@ -142,7 +142,8 @@ main hr{
     font-family: 'KG';
     font-weight: bold;
     position: relative;
-    background-color: blanchedalmond;
+    /*background-color: blanchedalmond;*/
+    background-color: rgb(250, 249, 248);
 }
 .aeBlock{
     display: flex;
@@ -157,9 +158,15 @@ main hr{
     display: flex;
 }
 .aeDiv p{
-    width: 100px;
+    width: 90px;
     margin: auto;
     font-size: 1.5em;
+}
+.aeDiv p i{
+    margin-top: 30px;
+    width: 50px;
+    height: 50px;
+    transform: scale(2);
 }
 .aeDiv .room_logo{
     display: block;

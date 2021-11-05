@@ -96,7 +96,7 @@ const processToMonitorConstruction = () => {
         let aeDiv = document.createElement('div');
         aeDiv.setAttribute('id', 'aeDiv' + ae.aeId);
         aeDiv.classList.add('aeDiv');
-        aeDiv.innerHTML = '<p>' + ae.aeName + '<span class="room_logo"></span></p>';
+        aeDiv.innerHTML = '<p>' + ae.aeName + '<i class="fas fa-person-booth"></i></p>';
 
         let aeContainersDiv = document.createElement('div');
         aeContainersDiv.setAttribute('id', 'aeContainersDiv' + ae.aeId);
