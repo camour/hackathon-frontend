@@ -2,7 +2,11 @@
     font-family: "police";
 	src: url('../polices/Stormland_PERSONAL_USE_ONLY-Black.otf') format('otf'),
 		url('../polices/Stormland_PERSONAL_USE_ONLY-Bold.otf') format('woff2'),
-        url('../polices/Stormland_PERSONAL_USE_ONLY-Light.otf') format('woff');
+        url('../polices/Stormland_PERSONAL_USE_ONLY-Light.otf') format('woff'); 
+}
+@font-face{
+    font-family: 'KG';
+    src: url('../polices/KGEverSinceNewYork.ttf') format('truetype');
 }
 
 h2
@@ -129,8 +133,70 @@ main hr{
     margin: auto;
 }
 
-.monitoringBlock{
-    width: 400px; 
+#monitoringBlock{
+    width: 700px;
+    margin: auto;
+    margin-top: 40px;
+    border: 2px black solid;
+    box-shadow: 2px 2px 1px black ;
+    font-family: 'KG';
+    font-weight: bold;
+    position: relative;
+    background-color: blanchedalmond;
+}
+.aeBlock{
+    display: flex;
+    position: relative;
+}
+
+.aeBlock .aeDiv{
+    position: relative;
+    border: 1px black solid;
+    width: 50%;
+    text-align: center;
+    display: flex;
+}
+.aeDiv p{
+    width: 100px;
+    margin: auto;
+    font-size: 1.5em;
+}
+.aeDiv .room_logo{
+    display: block;
+    background-image: url('../images/room_logo.jpg');
+    background-position: center;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+}
+
+.aeBlock .aeContainersDiv{
+    border: 1px black solid;
+    width: 50%;
+}
+.containerDiv{
+    margin-bottom: 50px;
+}
+.containerDiv h6{
+    margin-top: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+.containerDiv h6 p{
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.containerDiv h6 .TEMPERATURE_logo, .containerDiv h6 .ACCELEROMETER_logo{
+    background-position: center;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+}
+.containerDiv h6 .TEMPERATURE_logo{
+    background-image: url('../images/temperature_logo.jpg');
+}
+.containerDiv h6 .ACCELEROMETER_logo{    
+    background-image: url('../images/accelerometer_logo.jpg');
 }
 
 footer

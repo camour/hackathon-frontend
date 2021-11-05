@@ -33,7 +33,7 @@ const connect = () => {
         let checks = [];
         let aeArray = JSON.parse(localStorage.getItem('aeArray'));
         for(let ae of aeArray){
-            for(let containerId of ae.containersArray){
+            for(let container of ae.containersArray){
                 fetch("http://localhost:3000/subscription", {
                 method: 'POST',
                 headers: {
@@ -41,7 +41,7 @@ const connect = () => {
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({
-                    containerId: containerId,
+                    containerId: container.containerId,
                     push: push,
                     identifiers: JSON.parse(localStorage.getItem('identifiers'))
                 })
@@ -58,6 +58,7 @@ const connect = () => {
                         alert('checks.length equals number of containers !');
                         document.getElementsByClassName('form')[0].style.display = "none" ;
                         document.getElementsByTagName('main')[0].style.display = "block" ;
+                        processToMonitorConstruction();                        
                     }               
                 })
                 .catch(error => {
@@ -79,4 +80,38 @@ const countContainers = (aeArray) => {
         }
     }
     return result;
+}
+
+const processToMonitorConstruction = () => {
+    let aeArray = JSON.parse(localStorage.getItem('aeArray'));
+    if(!aeArray){
+        return;
+    }
+    let monitor = document.getElementById('monitoringBlock');
+    for(let ae of aeArray){
+        let aeBlock = document.createElement('div');
+        aeBlock.setAttribute('id', 'aeBlock' + ae.aeId);
+        aeBlock.classList.add('aeBlock');
+
+        let aeDiv = document.createElement('div');
+        aeDiv.setAttribute('id', 'aeDiv' + ae.aeId);
+        aeDiv.classList.add('aeDiv');
+        aeDiv.innerHTML = '<p>' + ae.aeName + '<span class="room_logo"></span></p>';
+
+        let aeContainersDiv = document.createElement('div');
+        aeContainersDiv.setAttribute('id', 'aeContainersDiv' + ae.aeId);
+        aeContainersDiv.classList.add('aeContainersDiv');
+
+        for(let container of ae.containersArray){
+            let containerDiv = document.createElement('div');
+            containerDiv.setAttribute('id', 'containerDiv' + container.containerId);
+            containerDiv.classList.add('containerDiv');
+            containerDiv.innerHTML = '<h6><p>'+container.containerName+'</p><div class="'+container.containerName+'_logo"></div></h6>';
+            aeContainersDiv.appendChild(containerDiv);
+        }
+
+        aeBlock.appendChild(aeDiv);
+        aeBlock.appendChild(aeContainersDiv);
+        monitor.appendChild(aeBlock);     
+    }
 }

@@ -34,11 +34,13 @@ addEventListener('load', async () => {
   console.log('service worker registered locally : ');
   console.log(sw);
   console.log(" ");
+  processToMonitorConstruction();
 });
 
 document.getElementById('formSubmitButton').addEventListener('click', connect);
 
 const navigatorBroadcast = new BroadcastChannel('count-channel');
 navigatorBroadcast.onmessage = (event) => {
+  console.log(event);
   document.getElementById('monitoringBlock').innerHTML = 'test';
 }; 

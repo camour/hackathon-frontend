@@ -13,6 +13,6 @@ self.addEventListener('push', function(event){
         vibrate: [100, 50, 100],
         actions: [{ action: "explore", title: "View", icon: "https://via.placeholder.com/128/ff0000" }]
     };
-    event.waitUntil(self.registration.showNotification(title, options));
+    event.waitUntil(self.registration.showNotification('new data', options));
 
 });
