@@ -43,10 +43,27 @@ const navigatorBroadcast = new BroadcastChannel('count-channel');
 navigatorBroadcast.onmessage = (event) => {
   let payload = JSON.parse(event.data.payload);
   console.log(payload);
-  let containerDiv = document.getElementById('containerDiv'+payload.pi.split('mn-cse/')[1]);
+  let containerId = payload.pi.split('mn-cse/')[1];
+  let containerDiv = document.getElementById('containerDiv'+ containerId);
+  let containerDataDiv = document.getElementById('containerDataDiv'+ containerId);
+  containerDataDiv.innerHTML = '';
   let dataDiv = document.createElement('div');
   dataDiv.classList.add('dataDiv');
-  console.log(typeof payload.con);
-  dataDiv.textContent = payload.con.split('=\"')[2].split('"')[0];
-  containerDiv.appendChild(dataDiv);
+  let data = payload.con.split('=\"')[2].split('"')[0];
+  if(getContainerName(containerId)==='TEMPERATURE'){
+    if((37 <= parseInt(data, 10)) && (parseInt(data, 10)<= 37.9)){
+      dataDiv.innerHTML =  '<div class="goodAlert"></div>' + data + '</p>';
+    }else{
+      dataDiv.innerHTML =  '<div class="badAlert"></div>' + data + '</p>';
+    }
+  }
+  if(getContainerName(containerId)==='ACCELEROMETER'){
+    if((0 <= parseInt(data, 10)) && (parseInt(data, 10)<= 4)){
+      dataDiv.innerHTML =  '<div class="goodAlert"></div>' + data + '</p>';
+    }else{
+      dataDiv.innerHTML =  '<div class="badAlert"></div>' + data + '</p>';
+    }
+  }
+  
+  containerDataDiv.appendChild(dataDiv);
 }; 

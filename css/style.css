@@ -134,7 +134,7 @@ main hr{
 }
 
 #monitoringBlock{
-    width: 700px;
+    width: 800px;
     margin: auto;
     margin-top: 40px;
     border: 2px black solid;
@@ -142,8 +142,8 @@ main hr{
     font-family: 'KG';
     font-weight: bold;
     position: relative;
-    /*background-color: blanchedalmond;*/
-    background-color: rgb(250, 249, 248);
+    background-color: blanchedalmond;
+    /*background-color: rgb(250, 249, 248);*/
 }
 .aeBlock{
     display: flex;
@@ -195,12 +195,15 @@ main hr{
 .containerDiv h6 p{
     padding-top: 10px;
     padding-left: 10px;
+    font-size: 1.2em;
 }
 .containerDiv h6 .TEMPERATURE_logo, .containerDiv h6 .ACCELEROMETER_logo{
     background-position: center;
     background-size: cover;
     width: 50px;
     height: 50px;
+    margin-right: 10px;
+    border-radius: 1em;
 }
 .containerDiv h6 .TEMPERATURE_logo{
     background-image: url('../images/temperature_logo.jpg');
@@ -209,8 +212,32 @@ main hr{
     background-image: url('../images/accelerometer_logo.jpg');
 }
 .dataDiv{
+    width: 80%;
+    margin: auto;
     text-align: center;
     font-size: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dataDiv i {
+    margin-right: 10px;
+}
+.goodAlert{
+    width: 80px;
+    height: 80px;
+    background-image: url('../images/goodAlert.gif');
+    background-position: center;
+    background-size: cover;
+    border-radius: 1em;
+}
+.badAlert{
+    width: 40px;
+    height: 40px;
+    background-image: url('../images/badAlert.gif');
+    background-position: center;
+    background-size: cover;
 }
 
 footer

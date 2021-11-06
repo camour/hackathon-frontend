@@ -96,7 +96,7 @@ const processToMonitorConstruction = () => {
         let aeDiv = document.createElement('div');
         aeDiv.setAttribute('id', 'aeDiv' + ae.aeId);
         aeDiv.classList.add('aeDiv');
-        aeDiv.innerHTML = '<p>' + ae.aeName + '<i class="fas fa-person-booth"></i><i id="dotCircle"'+ ae.aeId +'" class="far fa-dot-circle"></i></p>';
+        aeDiv.innerHTML = '<p>' + ae.aeName + '<i class="fas fa-person-booth"></i></p>';
 
         let aeContainersDiv = document.createElement('div');
         aeContainersDiv.setAttribute('id', 'aeContainersDiv' + ae.aeId);
@@ -106,7 +106,7 @@ const processToMonitorConstruction = () => {
             let containerDiv = document.createElement('div');
             containerDiv.setAttribute('id', 'containerDiv' + container.containerId);
             containerDiv.classList.add('containerDiv');
-            containerDiv.innerHTML = '<h6><p>'+container.containerName+'</p><div class="'+container.containerName+'_logo"></div></h6>';
+            containerDiv.innerHTML = '<h6><p>'+container.containerName+'</p><div class="'+container.containerName+'_logo"></div></h6><div id="containerDataDiv'+ container.containerId +'"></div>';
             aeContainersDiv.appendChild(containerDiv);
         }
 
@@ -114,4 +114,17 @@ const processToMonitorConstruction = () => {
         aeBlock.appendChild(aeContainersDiv);
         monitor.appendChild(aeBlock);     
     }
+}
+
+const getContainerName = (containerId) => {
+    let aeArray = JSON.parse(localStorage.getItem('aeArray'));
+    let result = null;
+    for(let ae of aeArray){
+        for(let container of ae.containersArray){
+            if(container.containerId === containerId){
+                result = container;
+            }
+        }
+    }
+    return result.containerName;
 }
