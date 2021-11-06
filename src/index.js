@@ -41,6 +41,12 @@ document.getElementById('formSubmitButton').addEventListener('click', connect);
 
 const navigatorBroadcast = new BroadcastChannel('count-channel');
 navigatorBroadcast.onmessage = (event) => {
-  console.log(event);
-  document.getElementById('monitoringBlock').innerHTML = 'test';
+  let payload = JSON.parse(event.data.payload);
+  console.log(payload);
+  let containerDiv = document.getElementById('containerDiv'+payload.pi.split('mn-cse/')[1]);
+  let dataDiv = document.createElement('div');
+  dataDiv.classList.add('dataDiv');
+  console.log(typeof payload.con);
+  dataDiv.textContent = payload.con.split('=\"')[2].split('"')[0];
+  containerDiv.appendChild(dataDiv);
 }; 

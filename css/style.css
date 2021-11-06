@@ -148,12 +148,13 @@ main hr{
 .aeBlock{
     display: flex;
     position: relative;
+    border-bottom: 4px black solid;
 }
 
 .aeBlock .aeDiv{
     position: relative;
     border: 1px black solid;
-    width: 50%;
+    width: 40%;
     text-align: center;
     display: flex;
 }
@@ -165,8 +166,10 @@ main hr{
 .aeDiv p i{
     margin-top: 30px;
     width: 50px;
-    height: 50px;
     transform: scale(2);
+}
+.aeDiv .fa-dot-circle{
+    transform: scale(1.4);
 }
 .aeDiv .room_logo{
     display: block;
@@ -179,7 +182,7 @@ main hr{
 
 .aeBlock .aeContainersDiv{
     border: 1px black solid;
-    width: 50%;
+    width: 60%;
 }
 .containerDiv{
     margin-bottom: 50px;
@@ -204,6 +207,10 @@ main hr{
 }
 .containerDiv h6 .ACCELEROMETER_logo{    
     background-image: url('../images/accelerometer_logo.jpg');
+}
+.dataDiv{
+    text-align: center;
+    font-size: 2em;
 }
 
 footer
