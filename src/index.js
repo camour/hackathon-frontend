@@ -52,16 +52,16 @@ navigatorBroadcast.onmessage = (event) => {
   let data = payload.con.split('=\"')[2].split('"')[0];
   if(getContainerName(containerId)==='TEMPERATURE'){
     if((37 <= parseInt(data, 10)) && (parseInt(data, 10)<= 37.9)){
-      dataDiv.innerHTML =  '<div class="goodAlert"></div>' + data + '</p>';
+      dataDiv.innerHTML =  '<div class="goodAlert"></div>' + data + ' ° Celsius</p>';
     }else{
-      dataDiv.innerHTML =  '<div class="badAlert"></div>' + data + '</p>';
+      dataDiv.innerHTML =  '<div class="badAlert"></div>' + data + ' ° Celsius</p>';
     }
   }
   if(getContainerName(containerId)==='ACCELEROMETER'){
     if((0 <= parseInt(data, 10)) && (parseInt(data, 10)<= 4)){
-      dataDiv.innerHTML =  '<div class="goodAlert"></div>' + data + '</p>';
+      dataDiv.innerHTML =  '<div class="goodAlert"></div>' + data + ' m/s.s</p>';
     }else{
-      dataDiv.innerHTML =  '<div class="badAlert"></div>' + data + '</p>';
+      dataDiv.innerHTML =  '<div class="badAlert"></div>' + data + ' m/s.s</p>';
     }
   }
   

@@ -1,9 +1,11 @@
+const SERVER_NODE= 'http://localhost:3000/';
+
 const connect = () => {
     let identifiers = {
         login: document.getElementById('login').value,
         password: document.getElementById('password').value
     };
-    fetch('http://localhost:3000/login',{
+    fetch(SERVER_NODE + 'login',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -34,7 +36,7 @@ const connect = () => {
         let aeArray = JSON.parse(localStorage.getItem('aeArray'));
         for(let ae of aeArray){
             for(let container of ae.containersArray){
-                fetch("http://localhost:3000/subscription", {
+                fetch(SERVER_NODE + "subscription", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
