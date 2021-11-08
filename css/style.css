@@ -36,6 +36,11 @@ button:hover
 }
 header{
     padding: 20px;
+    font-size: 1.4em;
+}
+
+header .navbar-nav{
+    align-items: center;
 }
 
 header hr{
@@ -44,6 +49,9 @@ header hr{
 }
 header a:hover + hr{
     opacity: 1;
+}
+header .navbar-brand{
+    font-size: 1.4em;
 }
 
 header i
@@ -55,8 +63,8 @@ header i
     background-image: url('../images/monitor.gif');
     background-position: center;
     background-size: cover;
-    width: 90px;
-    height: 40px;
+    width: 130px;
+    height: 80px;
     margin-top: 3px;
     border-radius: 0.5rem;
 }
@@ -80,6 +88,7 @@ hr
     font-size: 0.9em;
 }
 .form div{
+    margin-top: 50px;
     margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
@@ -115,9 +124,9 @@ main{
 .jumbos p{
     font-family: 'police';
     font-style: italic;
-    font-size: 2.4em;
+    font-size: 2.8em;
     text-align: center;
-    width: 700px;
+    width: 800px;
     padding-top: 10px;
 }
 
@@ -128,15 +137,15 @@ main{
     width: 60px;
     height: 80px;
 }
-main hr{
-    width: 300px;
+.jumbos + hr{
+    width: 400px;
     margin: auto;
 }
 
 #monitoringBlock{
     width: 800px;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 80px;
     border: 2px black solid;
     box-shadow: 2px 2px 1px black ;
     font-family: 'KG';
@@ -159,9 +168,9 @@ main hr{
     display: flex;
 }
 .aeDiv p{
-    width: 90px;
+    width: 100px;
     margin: auto;
-    font-size: 1.5em;
+    font-size: 1.9em;
 }
 .aeDiv p i{
     margin-top: 30px;
@@ -185,6 +194,7 @@ main hr{
     width: 60%;
 }
 .containerDiv{
+    border-top: 1px rgb(165, 155, 155) solid;
     margin-bottom: 50px;
 }
 .containerDiv h6{
@@ -196,12 +206,13 @@ main hr{
     padding-top: 10px;
     padding-left: 10px;
     font-size: 1.2em;
+    font-family: 'police';
 }
 .containerDiv h6 .TEMPERATURE_logo, .containerDiv h6 .ACCELEROMETER_logo{
     background-position: center;
     background-size: cover;
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     margin-right: 10px;
     border-radius: 1em;
 }
