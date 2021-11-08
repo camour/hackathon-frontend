@@ -7,10 +7,11 @@ if(JSON.parse(localStorage.getItem('identifiers'))){
 }
 //chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
 const getData = () => {
-  fetch("http://172.20.10.2:8282/~/mn-cse/cin-273837532",{
+  let identifiers = JSON.parse(localStorage.getItem('identifiers'));
+  fetch("http://localhost:8282/~/mn-cse/cin-273837532",{
     method: 'GET',
     headers: {
-      'X-M2M-Origin': 'admin:admin',
+      'X-M2M-Origin': identifiers.login+':'+identifiers.password,
       'Accept': 'application/json'
     }
   })
@@ -21,7 +22,6 @@ const getData = () => {
     throw result;
   })
   .then(result => {
-    document.getElementById('products').value = JSON.stringify(result);
     console.log(result);
   })
   .catch(error => {
