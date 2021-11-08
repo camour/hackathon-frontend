@@ -1,10 +1,12 @@
 const SERVER_NODE= 'http://localhost:3000/';
 
+// our web clients logs in with the SERVER_NODE
 const connect = () => {
     let identifiers = {
         login: document.getElementById('login').value,
         password: document.getElementById('password').value
     };
+    // we send our loggins to the server node so this server can notify us whenever a new data has been published on the gateway node
     fetch(SERVER_NODE + 'login',{
         method: 'POST',
         headers: {
@@ -25,6 +27,7 @@ const connect = () => {
         }
     })
     .then(async () => {
+        // a service worker (sw) is responsible of listening to any notifications from the server node
         let sw = await navigator.serviceWorker.ready;
         let push = await sw.pushManager.subscribe({
           userVisibleOnly: true,
@@ -34,6 +37,7 @@ const connect = () => {
         console.log(JSON.stringify(push));
         let checks = [];
         let aeArray = JSON.parse(localStorage.getItem('aeArray'));
+        //we have to subscribe onto the gateway node to every data containers we have access to
         for(let ae of aeArray){
             for(let container of ae.containersArray){
                 fetch(SERVER_NODE + "subscription", {
@@ -54,10 +58,8 @@ const connect = () => {
                 }
                 })
                 .then(response => {
-                    console.log(response);
                     checks.push(1);
                     if((checks.length === countContainers(aeArray)) && checks.every((currentvalue) => currentvalue===1)){
-                        alert('checks.length equals number of containers !');
                         document.getElementsByClassName('form')[0].style.display = "none" ;
                         document.getElementsByTagName('main')[0].style.display = "block" ;
                         processToMonitorConstruction();                        
@@ -84,6 +86,7 @@ const countContainers = (aeArray) => {
     return result;
 }
 
+// this process only consists in rendering the webpage dynamically, based on the flow of data we constantly receive
 const processToMonitorConstruction = () => {
     let aeArray = JSON.parse(localStorage.getItem('aeArray'));
     if(!aeArray){

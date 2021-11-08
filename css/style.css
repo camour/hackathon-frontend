@@ -67,6 +67,7 @@ header i
     height: 80px;
     margin-top: 3px;
     border-radius: 0.5rem;
+    margin-left: 100px;
 }
 
 hr
@@ -143,7 +144,7 @@ main{
 }
 
 #monitoringBlock{
-    width: 800px;
+    width: 1000px;
     margin: auto;
     margin-top: 80px;
     border: 2px black solid;
@@ -152,7 +153,6 @@ main{
     font-weight: bold;
     position: relative;
     background-color: blanchedalmond;
-    /*background-color: rgb(250, 249, 248);*/
 }
 .aeBlock{
     display: flex;
@@ -194,7 +194,7 @@ main{
     width: 60%;
 }
 .containerDiv{
-    border-top: 1px rgb(165, 155, 155) solid;
+    border-top: 1px rgb(75, 62, 65) solid;
     margin-bottom: 50px;
 }
 .containerDiv h6{
