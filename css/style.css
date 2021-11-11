@@ -146,7 +146,7 @@ main{
 #monitoringBlock{
     width: 1000px;
     margin: auto;
-    margin-top: 80px;
+    margin-top: 40px;
     border: 2px black solid;
     box-shadow: 2px 2px 1px black ;
     font-family: 'KG';

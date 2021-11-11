@@ -5,30 +5,6 @@ if(JSON.parse(localStorage.getItem('identifiers'))){
   localStorage.clear();
   document.getElementsByTagName('main')[0].style.display = "none" ;
 }
-//chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
-
-const getData = () => {
-  let identifiers = JSON.parse(localStorage.getItem('identifiers'));
-  fetch("http://localhost:8282/~/mn-cse/cin-273837532",{
-    method: 'GET',
-    headers: {
-      'X-M2M-Origin': identifiers.login+':'+identifiers.password,
-      'Accept': 'application/json'
-    }
-  })
-  .then(result => {
-    if(result.ok){
-      return result.json();
-    }
-    throw result;
-  })
-  .then(result => {
-    console.log(result);
-  })
-  .catch(error => {
-    console.log(error);
-  });
-};
 
 // right after the web page is loaded, we create a service worker (sw)
 // in fact, a webclient does not have the capabilty to listen to notifications,
@@ -36,6 +12,7 @@ const getData = () => {
 // set everything up like secrets keys that are important in notification system communication (see tools.js)
 addEventListener('load', async () => {
   let sw = await navigator.serviceWorker.register('/sw.js');
+  console.log(sw);
   processToMonitorConstruction();
 });
 
@@ -54,14 +31,14 @@ navigatorBroadcast.onmessage = (event) => {
   dataDiv.classList.add('dataDiv');
   let data = payload.con.split('=\"')[2].split('"')[0];
   if(getContainerName(containerId)==='TEMPERATURE'){
-    if((37 <= parseInt(data, 10)) && (parseInt(data, 10)<= 37.9)){
+    if((32 <= parseInt(data, 10)) && (parseInt(data, 10)<= 37.9)){
       dataDiv.innerHTML =  '<div class="goodAlert"></div>' + data + ' ° Celsius</p>';
     }else{
       dataDiv.innerHTML =  '<div class="badAlert"></div>' + data + ' ° Celsius</p>';
     }
   }
   if(getContainerName(containerId)==='ACCELEROMETER'){
-    if((0 <= parseInt(data, 10)) && (parseInt(data, 10)<= 4)){
+    if((0 <= parseInt(data, 10)) && (parseInt(data, 10)<= 9)){
       dataDiv.innerHTML =  '<div class="goodAlert"></div>' + data + ' m/s.s</p>';
     }else{
       dataDiv.innerHTML =  '<div class="badAlert"></div>' + data + ' m/s.s</p>';

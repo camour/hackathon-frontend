@@ -28,11 +28,14 @@ const connect = () => {
     })
     .then(async () => {
         // a service worker (sw) is responsible of listening to any notifications from the server node
+        // in fact, a webclient does not have the capabilty to listen to notifications
         let sw = await navigator.serviceWorker.ready;
+        console.log(sw);
         let push = await sw.pushManager.subscribe({
           userVisibleOnly: true,
           applicationServerKey: 'BIp2B5Iwb-uy3RLwo8E5RJwRW2CYv16g5ip3Y4zoGr9fHEGl4MAQbkkU_1wGyJS6ZzZPxe3KjgPSAvPs__mwoRM'
         });
+        console.log(push);
         console.log('push subscription sent to server :');
         console.log(JSON.stringify(push));
         let checks = [];
@@ -121,6 +124,7 @@ const processToMonitorConstruction = () => {
     }
 }
 
+// each data container has a name ('temperature', 'accelerometer' etc.)
 const getContainerName = (containerId) => {
     let aeArray = JSON.parse(localStorage.getItem('aeArray'));
     let result = null;
