@@ -3,7 +3,7 @@ This repository is part of the hackathon project and implements the User Web app
 This repository launches the frontend part, that is a "e-monitoring" web application
 The goal of this frontend part is to display on the navigator patients'health datas (temperature and acceleration).
 
------------------------------------------------------------
+-----------------------------------------------------------------------------------------
 
 Project installation : 
 
@@ -14,7 +14,7 @@ Project installation :
 - if the terminal prompts any question about installing a module, press "Y"
 - to display this web app, you also need to install the google chrome navigator
 
------------------------------------------------------------
+-----------------------------------------------------------------------------------------
 
 Project configuration :
 Let's keep in mind we have 4 nodes for the whole hackathon project: Sensors, Gateway (Middle Node), Infrastructure Node, User Web application
@@ -24,7 +24,7 @@ Let's keep in mind we have 4 nodes for the whole hackathon project: Sensors, Gat
 - to do so, on your local machine,  open the "tools.js" file of this repo that you just cloned, and edit the first line that is : const SERVER_NODE = "http://localhost:3000/" 
 - replace the url "http://localhost:3000" by the url where your Infrasture Node will be running at
 
------------------------------------------------------------
+----------------------------------------------------------------------------------------
 
 Project launch :
 - on a terminal, under the "hackathon-backend" repo, run the following line command : npm start
