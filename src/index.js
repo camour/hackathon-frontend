@@ -38,7 +38,7 @@ navigatorBroadcast.onmessage = (event) => {
     }
   }
   if(getContainerName(containerId)==='ACCELEROMETER'){
-    if((0 <= parseInt(data, 10)) && (parseInt(data, 10)<= 12.4)){
+    if((0 <= parseInt(data, 10)) && (parseInt(data, 10)<= 9.9)){
       dataDiv.innerHTML =  '<div class="goodAlert"></div>' + data + ' m/s.s</p>';
     }else{
       dataDiv.innerHTML =  '<div class="badAlert"></div>' + data + ' m/s.s</p>';
