@@ -31,14 +31,14 @@ navigatorBroadcast.onmessage = (event) => {
   dataDiv.classList.add('dataDiv');
   let data = payload.con.split('=\"')[2].split('"')[0];
   if(getContainerName(containerId)==='TEMPERATURE'){
-    if((32 <= parseInt(data, 10)) && (parseInt(data, 10)<= 37.9)){
+    if((32 <= parseInt(data, 10)) && (parseInt(data, 10)<= 38)){
       dataDiv.innerHTML =  '<div class="goodAlert"></div>' + data + ' ° Celsius</p>';
     }else{
       dataDiv.innerHTML =  '<div class="badAlert"></div>' + data + ' ° Celsius</p>';
     }
   }
   if(getContainerName(containerId)==='ACCELEROMETER'){
-    if((0 <= parseInt(data, 10)) && (parseInt(data, 10)<= 9)){
+    if((0 <= parseInt(data, 10)) && (parseInt(data, 10)<= 12.4)){
       dataDiv.innerHTML =  '<div class="goodAlert"></div>' + data + ' m/s.s</p>';
     }else{
       dataDiv.innerHTML =  '<div class="badAlert"></div>' + data + ' m/s.s</p>';
