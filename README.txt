@@ -3,6 +3,8 @@ This repository is part of the hackathon project and implements the User Web app
 This repository launches the frontend part, that is a "e-monitoring" web application
 The goal of this frontend part is to display on the navigator patients'health datas (temperature and acceleration).
 
+We highly recommend to use Windows 10 !
+
 -----------------------------------------------------------------------------------------
 
 Project installation : 
@@ -13,6 +15,7 @@ Project installation :
 - run the following line command to install all the Node dependencies required for the project :  npm install
 - if the terminal prompts any question about installing a module, press "Y"
 - to display this web app, you also need to install the google chrome navigator
+- install google chrome. Right after you have to set "chrome" in your path environments variables so we can use "chrome" line command in a terminal
 
 -----------------------------------------------------------------------------------------
 
@@ -27,8 +30,9 @@ Let's keep in mind we have 4 nodes for the whole hackathon project: Sensors, Gat
 ----------------------------------------------------------------------------------------
 
 Project launch :
-- on a terminal, under the "hackathon-backend" repo, run the following line command : npm start
-- congrats ! now you have launched a local server that serves the frontend page that will accessible from Chrome
-- then to display this page, you have to launch google chrome without its regular securities to avoid "Web CORS issues" otherwise the frontend page will be blocked
-- to do so, open a second terminal and run : chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
-- now you can access the frontend page on your local machine by typing down on google chrome's URL bar : http://localhost:80
+- before launching this web application, make sure the IN-CSE software AND the Node JS server are already running (the whole Infrastructure Node more generally)
+- on a terminal, under the "hackathon-frontend" repository, run the following line command : npm start
+- congrats ! now you have launched a local server that serves the frontend web application page that will accessible from Chrome
+- open a Chrome page and type in the URL bar the following : 'http://localhost:80'. You should see a login page. 
+- on the top of this page, a little message will pop asking your permission for notifications, click on "allow" or "grant" or "authorize" otherwise, you will not get to see patients'data
+

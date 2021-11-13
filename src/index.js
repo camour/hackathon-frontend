@@ -11,9 +11,19 @@ if(JSON.parse(localStorage.getItem('identifiers'))){
 // so we use service worker. Here we just create the service worker but we did not
 // set everything up like secrets keys that are important in notification system communication (see tools.js)
 addEventListener('load', async () => {
-  let sw = await navigator.serviceWorker.register('/sw.js');
-  console.log(sw);
-  processToMonitorConstruction();
+  let granted = await Notification.requestPermission(function(result) {
+    console.log('permission result :');
+    console.log(result);
+    if(result === 'granted'){
+      return true;    
+    }
+    return false;
+  });
+  if(granted){
+    let sw = await navigator.serviceWorker.register('/sw.js');
+    console.log(sw);
+    processToMonitorConstruction();
+  }
 });
 
 document.getElementById('formSubmitButton').addEventListener('click', connect);

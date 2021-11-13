@@ -4,7 +4,9 @@ module.exports = {
   mode: "production",
   devServer: {
     inline:true,
-    port: 80
+    host: '0.0.0.0',
+    port: 80,
+    disableHostCheck: true,
   },
   entry: {
     //app: "./src/index.js"
