@@ -33,5 +33,5 @@ Project launch :
 - on a terminal, under the "hackathon-frontend" repository, run the following line command : npm start
 - congrats ! now you have launched a local server that serves the frontend web application page that will accessible from Chrome
 - open a Chrome page and type in the URL bar the following : 'http://localhost:80'. You should see a login page. 
-- on the top of this page, a little message will pop asking your permission for notifications, click on "allow" or "grant" or "authorize" otherwise, you will not get to see patients'data
+- on the top of this page, a little message will pop up asking for your permission to allow notifications, click on "allow" or "grant" or "authorize" otherwise, you will not get to see patients'data
 
