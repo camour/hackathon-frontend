@@ -1,4 +1,4 @@
-const SERVER_NODE= 'http://172.20.10.5:3000/';
+const SERVER_NODE= 'http://localhost:3000/';
 
 // our web clients logs in with the SERVER_NODE
 const connect = () => {
