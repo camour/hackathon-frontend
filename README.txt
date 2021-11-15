@@ -23,6 +23,8 @@ Project configuration :
 Let's keep in mind we have 4 nodes for the whole hackathon project: Sensors, Gateway (Middle Node), Infrastructure Node, User Web application
 - the user web app only communicates with the Infrastructure Node
 - to do so, on your local machine,  open the "tools.js" file of this repo that you just cloned, and make sure the first line of the file is : const SERVER_NODE = "http://localhost:3000/" 
+- WARNING : TO MAKE IT EASIER FOR TESTS MAKE SURE THE WEB APP RUNS ON THE SAME MACHINE THE INFRASTRUCTURE NODE IS RUNNING AT
+
 
 ----------------------------------------------------------------------------------------
 
