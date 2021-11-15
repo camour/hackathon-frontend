@@ -17,16 +17,6 @@ Project installation :
 - to display this web app, you also need to install the google chrome navigator
 - install google chrome. Right after you have to set "chrome" in your path environments variables so we can use "chrome" line command in a terminal
 
------------------------------------------------------------------------------------------
-
-Project configuration :
-Let's keep in mind we have 4 nodes for the whole hackathon project: Sensors, Gateway (Middle Node), Infrastructure Node, User Web application
-- the user web app only communicates with the Infrastructure Node
-- if you do not mind to run both the user web application and the Infrastructure Node on your local machine, then skip this part and go to "Project launch"
-- in case you would like your user web application and your Infrastructure Node to not run on the same machine, then you have to change the IP address of the server node (Infrastructure Node). 
-- to do so, on your local machine,  open the "tools.js" file of this repo that you just cloned, and edit the first line that is : const SERVER_NODE = "http://localhost:3000/" 
-- replace the url "http://localhost:3000" by the url where your Infrasture Node will be running at
-
 ----------------------------------------------------------------------------------------
 
 Project launch :
